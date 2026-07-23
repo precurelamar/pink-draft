@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pink Draft!</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+  :root {
+    --blush: #FFF3F7;
+    --surface: #facfde;
+    --ink: #873d60;
+    --ink-soft: #9C7C89;
+    --pink: #F6A6C1;
+    --pink-deep: #E87FA0;
+    --gold: #F4D06F;
+    --lilac: #D9C3E8;
+    --line: #FBE1EA;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--blush);
+    background-image:
+      radial-gradient(circle at 12% 20%, rgba(246,166,193,0.3) 0, transparent 42%),
+      radial-gradient(circle at 88% 15%, rgba(217,195,232,0.28) 0, transparent 40%),
+      radial-gradient(circle at 50% 95%, rgba(244,208,111,0.2) 0, transparent 45%);
+    color: var(--ink);
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Floating SVG bows */
+.bow {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  opacity: .65;
+  pointer-events: none;
+}
+
+  /* floating clouds */
+  .cloud {
+    position: absolute;
+    font-size: 34px;
+    opacity: 0.55;
+    animation: drift 14s ease-in-out infinite;
+  }
+  .cloud.c1 { top: 8%; left: 8%; animation-delay: 0s; }
+  .cloud.c2 { top: 14%; right: 10%; font-size: 26px; animation-delay: 2.5s; }
+  .cloud.c3 { bottom: 10%; left: 12%; font-size: 22px; animation-delay: 5s; }
+  .cloud.c4 { bottom: 16%; right: 8%; font-size: 30px; animation-delay: 1.2s; }
+
+  @keyframes drift {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-14px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cloud { animation: none; }
+  }
+
+  .card {
+    width: 100%;
+    max-width: 560px;
+    background: var(--surface);
+    border: 2px solid var(--line);
+    border-radius: 26px;
+    padding: 36px 30px 30px;
+    box-shadow: 0 4px 8px rgba(232,127,160,0.08), 0 20px 40px rgba(232,127,160,0.1);
+    position: relative;
+    z-index: 1;
+  }
+
+  .sheep-badge {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 12px;
+    display: block;
+  }
+
+  h1 {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 38px;
+    margin: 0 0 4px;
+    text-align: center;
+    color: var(--pink-deep);
+  }
+
+  .subtitle {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    margin: 0 0 30px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .page-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .page-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--blush);
+    border: 2px solid var(--line);
+    border-radius: 18px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .page-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--pink-deep);
+    background: #FFE9F1;
+  }
+
+  .page-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    flex-shrink: 0;
+  }
+
+  .page-text { flex: 1; min-width: 0; }
+
+  .page-title {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 2px;
+    color: var(--ink);
+  }
+
+  .page-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .page-arrow {
+    color: var(--pink-deep);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .footer-note {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    text-align: center;
+    line-height: 1.6;
+    padding-top: 20px;
+    margin-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+  <span class="cloud c1">☁️</span>
+  <span class="cloud c2">⭐</span>
+  <span class="cloud c3">💗</span>
+  <span class="cloud c4">✨</span>
+
+  <div class="card">
+    <svg class="sheep-badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- fluffy pink cloud body -->
+      <g>
+        <circle cx="30" cy="50" r="16" fill="#F9C4D8"/>
+        <circle cx="46" cy="40" r="19" fill="#F9C4D8"/>
+        <circle cx="64" cy="42" r="18" fill="#F9C4D8"/>
+        <circle cx="78" cy="55" r="15" fill="#F9C4D8"/>
+        <circle cx="50" cy="58" r="22" fill="#F9C4D8"/>
+        <circle cx="34" cy="62" r="15" fill="#F9C4D8"/>
+        <circle cx="66" cy="62" r="15" fill="#F9C4D8"/>
+      </g>
+      <!-- face -->
+      <ellipse cx="50" cy="60" rx="15" ry="12" fill="#FFFDFB"/>
+      <circle cx="44" cy="59" r="2.3" fill="#5A3A46"/>
+      <circle cx="56" cy="59" r="2.3" fill="#5A3A46"/>
+      <ellipse cx="50" cy="65" rx="3" ry="2" fill="#E87FA0"/>
+      <circle cx="38" cy="63" r="3.5" fill="#FBD3E0" opacity="0.9"/>
+      <circle cx="62" cy="63" r="3.5" fill="#FBD3E0" opacity="0.9"/>
+      <!-- ears -->
+      <ellipse cx="35" cy="52" rx="4" ry="6" fill="#FFFDFB" transform="rotate(-20 35 52)"/>
+      <ellipse cx="65" cy="52" rx="4" ry="6" fill="#FFFDFB" transform="rotate(20 65 52)"/>
+      <!-- bow -->
+      <path d="M50 44 L42 38 L42 46 Z" fill="#E87FA0"/>
+      <path d="M50 44 L58 38 L58 46 Z" fill="#E87FA0"/>
+      <circle cx="50" cy="44" r="2.5" fill="#D9648B"/>
+    </svg>
+
+    <h1>Pink Message Board - The Test</h1>
+    <p class="subtitle">A place to test many pages and have fun coding!</p>
+
+    <div class="page-list">
+      <a class="page-link" href="diario-secreto.html">
+        <div class="page-icon">🎀</div>
+        <div class="page-text">
+          <p class="page-title">Diário Secreto</p>
+          <p class="page-desc">Escreve os teus pensamentos, com PIN só teu.</p>
+        </div>
+        <div class="page-arrow">→</div>
+      </a>
+    </div>
+
+    <p class="footer-note">Mais páginas vão aparecer aqui, uma nuvem de cada vez ☁️💗</p>
+  </div>
+</body>
+</html>
