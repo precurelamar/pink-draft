@@ -6,18 +6,40 @@
 <title>Pink Draft!</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+	
+	:root {
+    /* Backgrounds */
+    --bg: #FFF9FB;
+    --surface: #F9DCE8;
 
-  :root {
-    --blush: #FFF3F7;
-    --surface: #facfde;
-    --ink: #873d60;
-    --ink-soft: #9C7C89;
-    --pink: #F6A6C1;
-    --pink-deep: #E87FA0;
-    --gold: #F4D06F;
-    --lilac: #D9C3E8;
-    --line: #FBE1EA;
-  }
+    /* Pinks */
+    --pink-light: #F4BDD2;
+    --pink: #EEAFC8;
+	--pink-deep: #E87FA0;
+
+    /* Yellows */
+    --yellow-light: #FCEEB5;
+    --yellow: #F6D97A;
+    --gold: #EBC96C;
+
+    /* Lilacs */
+    --lilac-light: #E7DDF6;
+    --lilac: #D4C1EC;
+    --lilac-deep: #BFA7DC;
+
+    /* Text */
+    --text: #7C647D;
+    --text-strong: #664A68;
+	--text-soft: #9C7C89;
+	--text-headline-strong: #E87FA0;
+	--text-headline-soft: #F4BDD2;
+
+    /* Borders */
+    --line: #F2E7EE;
+	--line-soft: #FBE1EA;
+	--line-strong: #E87FA0;
+
+}
 
   * { box-sizing: border-box; }
   html, body { height: 100%; }
@@ -25,12 +47,12 @@
   body {
     margin: 0;
     min-height: 100vh;
-    background: var(--blush);
+    background: var(--surface);
     background-image:
       radial-gradient(circle at 12% 20%, rgba(246,166,193,0.3) 0, transparent 42%),
-      radial-gradient(circle at 88% 15%, rgba(217,195,232,0.28) 0, transparent 40%),
-      radial-gradient(circle at 50% 95%, rgba(244,208,111,0.2) 0, transparent 45%);
-    color: var(--ink);
+      radial-gradient(circle at 88% 15%, rgba(217,195,232,0.3) 0, transparent 40%),
+      radial-gradient(circle at 50% 95%, rgba(232,127,160,0.20) 0, transparent 45%);
+    color: var(--pink-deep);
     font-family: 'Quicksand', sans-serif;
     display: flex;
     justify-content: center;
@@ -45,36 +67,49 @@
   position: absolute;
   width: 42px;
   height: 42px;
-  opacity: .65;
+  opacity: 0.65;
+  animation: drift 14s ease-in-out infinite;
   pointer-events: none;
 }
+.bow.c1 { top: 8%; right: 8%; font-size: 26px; animation-delay: 2.5s; }
+.bow.c2 { top: 30%; left: 12%; font-size: 20px; animation-delay: 1s; }
+.bow.c3 { top: 16%; right: 44%; font-size: 24px; animation-delay: 3s; }
+.bow.c4 { top: 20%; left: 89%; font-size: 30px; animation-delay: 2s; }
+.bow.c5 { top: 55%; right: 9%; font-size: 20px; animation-delay: 1.5s; }
 
-  /* floating clouds */
-  .cloud {
+	/* Stars */
+	.star {
     position: absolute;
-    font-size: 34px;
-    opacity: 0.55;
-    animation: drift 14s ease-in-out infinite;
-  }
-  .cloud.c1 { top: 8%; left: 8%; animation-delay: 0s; }
-  .cloud.c2 { top: 14%; right: 10%; font-size: 26px; animation-delay: 2.5s; }
-  .cloud.c3 { bottom: 10%; left: 12%; font-size: 22px; animation-delay: 5s; }
-  .cloud.c4 { bottom: 16%; right: 8%; font-size: 30px; animation-delay: 1.2s; }
+    color: rgba(255,255,255,.8);
+    animation: twinkle 5s infinite;
+    pointer-events: none;
+}
+
+
 
   @keyframes drift {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-14px); }
   }
+  
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(0.9);
+    }
 
-  @media (prefers-reduced-motion: reduce) {
-    .cloud { animation: none; }
-  }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.2);
+    }
+}
+
 
   .card {
     width: 100%;
     max-width: 560px;
-    background: var(--surface);
-    border: 2px solid var(--line);
+    background: var(--bg);
+    border: 2px solid var(--line-strong);
     border-radius: 26px;
     padding: 36px 30px 30px;
     box-shadow: 0 4px 8px rgba(232,127,160,0.08), 0 20px 40px rgba(232,127,160,0.1);
@@ -82,10 +117,10 @@
     z-index: 1;
   }
 
-  .sheep-badge {
-    width: 76px;
-    height: 76px;
-    margin: 0 auto 12px;
+  .mar-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 15px;
     display: block;
   }
 
@@ -95,11 +130,11 @@
     font-size: 38px;
     margin: 0 0 4px;
     text-align: center;
-    color: var(--pink-deep);
+    color: var(--text-headline-strong);
   }
 
   .subtitle {
-    color: var(--ink-soft);
+    color: var(--text-soft);
     font-size: 14.5px;
     margin: 0 0 30px;
     line-height: 1.5;
@@ -116,8 +151,8 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    background: var(--blush);
-    border: 2px solid var(--line);
+    background: var(--bg);
+    border: 2px solid var(--line-strong);
     border-radius: 18px;
     padding: 16px 18px;
     text-decoration: none;
@@ -127,7 +162,7 @@
 
   .page-link:hover {
     transform: translateY(-2px);
-    border-color: var(--pink-deep);
+    border-color: var(--pink);
     background: #FFE9F1;
   }
 
@@ -150,12 +185,12 @@
     font-weight: 700;
     font-size: 19px;
     margin: 0 0 2px;
-    color: var(--ink);
+    color: var(--text-soft);
   }
 
   .page-desc {
     font-size: 13px;
-    color: var(--ink-soft);
+    color: var(--text-soft);
     margin: 0;
     line-height: 1.4;
   }
@@ -168,7 +203,7 @@
 
   .footer-note {
     font-size: 12.5px;
-    color: var(--ink-soft);
+    color: var(--text);
     text-align: center;
     line-height: 1.6;
     padding-top: 20px;
@@ -178,54 +213,113 @@
 </style>
 </head>
 <body>
-  <span class="cloud c1">☁️</span>
-  <span class="cloud c2">⭐</span>
-  <span class="cloud c3">💗</span>
-  <span class="cloud c4">✨</span>
+  <span class="bow c1">☁️</span>
+  <span class="bow c2">⭐</span>
+  <span class="bow c3">💗</span>
+  <span class="bow c4">✨</span>
 
   <div class="card">
-    <svg class="sheep-badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <!-- fluffy pink cloud body -->
-      <g>
-        <circle cx="30" cy="50" r="16" fill="#F9C4D8"/>
-        <circle cx="46" cy="40" r="19" fill="#F9C4D8"/>
-        <circle cx="64" cy="42" r="18" fill="#F9C4D8"/>
-        <circle cx="78" cy="55" r="15" fill="#F9C4D8"/>
-        <circle cx="50" cy="58" r="22" fill="#F9C4D8"/>
-        <circle cx="34" cy="62" r="15" fill="#F9C4D8"/>
-        <circle cx="66" cy="62" r="15" fill="#F9C4D8"/>
-      </g>
-      <!-- face -->
-      <ellipse cx="50" cy="60" rx="15" ry="12" fill="#FFFDFB"/>
-      <circle cx="44" cy="59" r="2.3" fill="#5A3A46"/>
-      <circle cx="56" cy="59" r="2.3" fill="#5A3A46"/>
-      <ellipse cx="50" cy="65" rx="3" ry="2" fill="#E87FA0"/>
-      <circle cx="38" cy="63" r="3.5" fill="#FBD3E0" opacity="0.9"/>
-      <circle cx="62" cy="63" r="3.5" fill="#FBD3E0" opacity="0.9"/>
-      <!-- ears -->
-      <ellipse cx="35" cy="52" rx="4" ry="6" fill="#FFFDFB" transform="rotate(-20 35 52)"/>
-      <ellipse cx="65" cy="52" rx="4" ry="6" fill="#FFFDFB" transform="rotate(20 65 52)"/>
-      <!-- bow -->
-      <path d="M50 44 L42 38 L42 46 Z" fill="#E87FA0"/>
-      <path d="M50 44 L58 38 L58 46 Z" fill="#E87FA0"/>
-      <circle cx="50" cy="44" r="2.5" fill="#D9648B"/>
-    </svg>
-
-    <h1>Pink Message Board - The Test!</h1>
-    <p class="subtitle">A place to test many pages and have fun coding!</p>
+  <svg class="mar-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- fluffy pink wool --!>
+  <g>
+  <circle cx="50" cy="22" r="10" fill="#F9C4D8"/>
+  <circle cx="38" cy="26" r="9" fill="#F9C4D8"/>
+  <circle cx="62" cy="26" r="9" fill="#F9C4D8"/>
+  <circle cx="28" cy="36" r="9" fill="#F9C4D8"/>
+  <circle cx="72" cy="36" r="9" fill="#F9C4D8"/>
+  <circle cx="22" cy="48" r="9" fill="#F9C4D8"/>
+  <circle cx="78" cy="48" r="9" fill="#F9C4D8"/>
+  <circle cx="30" cy="60" r="9" fill="#F9C4D8"/>
+  <circle cx="70" cy="60" r="9" fill="#F9C4D8"/>
+  <circle cx="38" cy="70" r="9" fill="#F9C4D8"/>
+  <circle cx="50" cy="76" r="10" fill="#F9C4D8"/>
+  <circle cx="62" cy="70" r="9" fill="#F9C4D8"/>
+  </g>
+  <!-- sheep face --!>
+  <ellipse cx="50" cy="52" rx="16" ry="11" fill="#FFF9FB"/>
+  <!-- eyes --!>~
+  <circle cx="44" cy="51" r="2.2" fill="#5A3A46"/>
+  <circle cx="56" cy="51" r="2.2" fill="#5A3A46"/>
+  <!-- blush --!>
+  <circle cx="39" cy="55" r="3" fill="#FBD3E0" opacity="0.9"/>
+  <circle cx="61" cy="55" r="3" fill="#FBD3E0" opacity="0.9"/>
+  <!-- fluffy pink wool --!>
+  <!-- nose/mouth (sheep style) --!>
+  <path d="M48.5 56.5 Q50 57.8 51.5 56.5"
+  fill="none" stroke="#E87FA0" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M50 57.8 L50 60.2"
+  stroke="#E87FA0" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- small ears peeking out --!>
+  <ellipse cx="28" cy="50" rx="3.2" ry="2.1" fill="#FFF9FB" transform="rotate(-20 28 50)"/>
+  <ellipse cx="28.8" cy="50.4" rx="2" ry="1.2" fill="#F9DCE8" transform="rotate(-20 28.8 50.4)"/>
+  <ellipse cx="72" cy="50" rx="3.2" ry="2.1" fill="#FFF9FB" transform="rotate(20 72 50)"/>
+  <ellipse cx="71.2" cy="50.4" rx="2" ry="1.2" fill="#F9DCE8" transform="rotate(20 71.2 50.4)"/>
+  <!-- bow on wool --!>
+  <path d="M62 24 L57 20.5 L57 26.2 Z" fill="#D4C1EC"/>
+  <path d="M62 24 L67 20.5 L67 26.2 Z" fill="#D4C1EC"/>
+  <circle cx="62" cy="24" r="2.2" fill="#BFA7DC"/>
+  </svg>
+    <h1>Welcome to the Pink Hub!</h1>
+    <p class="subtitle">🩷 This is a message board for all the cuties out there 🩷</p>
 
     <div class="page-list">
-      <a class="page-link" href="diario-secreto.html">
+      <a class="page-link" href="AboutMe.html">
         <div class="page-icon">🎀</div>
         <div class="page-text">
-          <p class="page-title">Diário Secreto</p>
-          <p class="page-desc">Escreve os teus pensamentos, com PIN só teu.</p>
+          <p class="page-title">About Me</p>
+          <p class="page-desc">Get to know the creator of this space!</p>
         </div>
+        <div class="page-arrow">→</div>
+      </a>
+	  <a class="page-link" href="MessageBoard.html">
+        <div class="page-icon">💌</div>
+
+        <div class="page-text">
+            <p class="page-title">Cute Message Board</p>
+            <p class="page-desc">
+                Leave a sweet message for visitors.
+            </p>
+		</div>
+        <div class="page-arrow">→</div>
+      </a>
+	  <a class="page-link" href="StarJournal.html">
+        <div class="page-icon">🌟</div>
+
+        <div class="page-text">
+            <p class="page-title">Star Journal</p>
+            <p class="page-desc">
+                Share your dreams, let us get to know your subconscious!
+            </p>
+		</div>
         <div class="page-arrow">→</div>
       </a>
     </div>
 
     <p class="footer-note">Mais páginas vão aparecer aqui, uma nuvem de cada vez ☁️💗</p>
   </div>
+<!-- Star Generator -- START -->
+<div id="stars"></div>
+  <script>
+        const container = document.getElementById("stars");
+
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement("span");
+
+            star.className = "star";
+            star.innerHTML = "✦";
+
+            star.style.top = Math.random() * 100 + "%";
+            star.style.left = Math.random() * 100 + "%";
+
+            star.style.fontSize =
+                (10 + Math.random() * 10) + "px";
+
+            star.style.animationDelay =
+                (Math.random() * 5) + "s";
+
+            container.appendChild(star);
+        }
+    </script>
+<!-- Star Generator -- END -->
 </body>
 </html>
